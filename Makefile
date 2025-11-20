@@ -1,5 +1,5 @@
-BINARY_NAME={{module}}
-PKG=./cmd/{{module}}
+BINARY_NAME=dtac-aether-webmodule
+PKG=./cmd/dtac-aether-webmodule
 
 .PHONY: all build clean run
 

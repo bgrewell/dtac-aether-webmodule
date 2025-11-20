@@ -1,4 +1,4 @@
-package {{module}}
+package dtac_aether_webmodule
 
 import "net/http"
 

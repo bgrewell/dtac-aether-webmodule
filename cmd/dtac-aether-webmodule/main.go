@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/bgrewell/dtac-web-module-template/pkg/{{module}}"
+	"github.com/bgrewell/dtac-web-module-template/pkg/dtac-aether-webmodule"
 )
 
 func main() {
@@ -18,10 +18,10 @@ func main() {
 	mux := http.NewServeMux()
 
 	// Register HTTP routes for this module.
-	{{module}}.RegisterRoutes(mux)
+	dtac_aether_webmodule.RegisterRoutes(mux)
 
-	log.Printf("Starting {{module}} web module on %s", addr)
+	log.Printf("Starting dtac-aether-webmodule web module on %s", addr)
 	if err := http.ListenAndServe(addr, mux); err != nil {
-		log.Fatalf("failed to start {{module}} web module: %v", err)
+		log.Fatalf("failed to start dtac-aether-webmodule web module: %v", err)
 	}
 }
