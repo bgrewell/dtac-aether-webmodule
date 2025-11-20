@@ -1,0 +1,11 @@
+# Default configuration for the {{module}} web module.
+
+server:
+  addr: ":8080"
+
+logging:
+  level: info
+
+# Add any module-specific settings here.
+# example:
+# featureFlag: true
