@@ -10,7 +10,7 @@ import (
 	"reflect"
 )
 
-//go:embed static 
+//go:embed static
 var staticFiles embed.FS
 
 // This sets a non-existent variable to the interface type of module then attempts to assign
@@ -23,7 +23,7 @@ func NewAetherWebModule() *AetherWebModule {
 	awm := &AetherWebModule{
 		WebModuleBase: modules.WebModuleBase{},
 	}
-	
+
 	// Set root path
 	awm.SetRootPath("aetherweb")
 
@@ -86,7 +86,7 @@ func (h *AetherWebModule) Register(request *api.ModuleRegisterRequest, reply *ap
 
 	// Build web config from parsed values
 	webConfig := modules.WebModuleConfig{
-		Port:        8090, // default
+		Port:        8091, // default
 		StaticPath:  "/",
 		ProxyRoutes: []modules.ProxyRouteConfig{},
 		Debug:       true, // default to debug enabled for examples
@@ -134,4 +134,3 @@ func (h *AetherWebModule) Register(request *api.ModuleRegisterRequest, reply *ap
 
 	return nil
 }
-
