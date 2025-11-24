@@ -11,6 +11,11 @@ import (
 	"github.com/bgrewell/dtac-web-module-template/pkg/dtacaether"
 )
 
+const (
+	// shutdownTimeout is the maximum time allowed for graceful shutdown.
+	shutdownTimeout = 30 * time.Second
+)
+
 func main() {
 	// Load configuration from environment variables
 	cfg, err := dtacaether.LoadConfigFromEnv()
@@ -39,7 +44,7 @@ func main() {
 	log.Println("Received shutdown signal, stopping gracefully...")
 
 	// Create a shutdown context with timeout
-	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 30*time.Second)
+	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), shutdownTimeout)
 	defer shutdownCancel()
 
 	// Stop the module

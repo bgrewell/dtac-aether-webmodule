@@ -8,6 +8,7 @@ dist/
 *.dylib
 *.test
 *.out
+dtac-aether-webmodule
 
 # IDEs / Editors
 .vscode/

@@ -2,7 +2,6 @@ package dtacaether
 
 import (
 	"os"
-	"strconv"
 	"time"
 )
 
@@ -59,19 +58,4 @@ func parseDurationOrDefault(key string, defaultValue time.Duration) time.Duratio
 	}
 	
 	return duration
-}
-
-// parseIntOrDefault parses an integer from an environment variable or returns a default.
-func parseIntOrDefault(key string, defaultValue int) int {
-	value := os.Getenv(key)
-	if value == "" {
-		return defaultValue
-	}
-	
-	intVal, err := strconv.Atoi(value)
-	if err != nil {
-		return defaultValue
-	}
-	
-	return intVal
 }

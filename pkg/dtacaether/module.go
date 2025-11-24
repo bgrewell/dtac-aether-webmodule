@@ -10,6 +10,11 @@ import (
 	"time"
 )
 
+const (
+	// startupCheckDelay is the time to wait after starting the server to check for immediate failures.
+	startupCheckDelay = 100 * time.Millisecond
+)
+
 // Module represents the dtac-aether-webmodule with lifecycle management.
 type Module struct {
 	cfg    *Config
@@ -120,7 +125,7 @@ func (m *Module) Start(ctx context.Context) error {
 	select {
 	case err := <-m.serverErr:
 		return fmt.Errorf("failed to start server: %w", err)
-	case <-time.After(100 * time.Millisecond):
+	case <-time.After(startupCheckDelay):
 		m.logger.Printf("%s started successfully on %s", m.Name(), m.cfg.ListenAddr)
 		return nil
 	case <-ctx.Done():
