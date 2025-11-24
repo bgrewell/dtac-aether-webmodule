@@ -18,6 +18,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	// Register HTTP routes for this module.
+	wb := dtac_aether_webmodule.NewAetherWebModule()
 	dtac_aether_webmodule.RegisterRoutes(mux)
 
 	log.Printf("Starting dtac-aether-webmodule web module on %s", addr)
